@@ -1,6 +1,4 @@
 
 
-Comparison based sorting algorithms:
-    1. Merge sort.
-    2. Heap sort.
-    3. Quick sort.
+Merge, heap, quick sort codes in Python3.x.
+(C++ will be added soon)
