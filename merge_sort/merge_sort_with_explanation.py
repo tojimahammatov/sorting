@@ -75,3 +75,10 @@ def mergesort(A):
     # then it applies sorting on each sub-array and keeps merging them into one
 
     return merge(left, right)
+
+# Let's try some inputs:
+print(mergesort([5, 4, 3, 2, 1]))
+# outputs: [1, 2, 3, 4, 5]
+
+print(mergesort([6, 7, 7, 6]))
+# outputs: [6, 6, 7, 7]     # guess whether it is stable or not...
