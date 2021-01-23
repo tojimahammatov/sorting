@@ -3,12 +3,13 @@
 # Time complexity, Big O ==>> O(n*logn)
 # Space complexity, Big O ==>> O(n)
 
-"""
-    1st:    [5, 2, 6, 4]
-    2nd:    [5, 2]; [6, 4]
-    3rd:    [5], [2]; [6], [4]
-    4th:    [2, 5]; [4, 6]
-    5th:    [2, 4, 5, 6]
+""" 
+    Example of how merge sort works:
+    1st:    [5, 2, 6, 4]            # given list
+    2nd:    [5, 2]; [6, 4]          # divide
+    3rd:    [5], [2]; [6], [4]      # divide
+    4th:    [2, 5]; [4, 6]          # merge
+    5th:    [2, 4, 5, 6]            # merge
 """
 
 def merge(left, right):
@@ -18,7 +19,35 @@ def merge(left, right):
     args:   left, right -> lists
     rtype:  merged -> list (sorted)
     """
-    pass
+    # we need new list to store the result of merging left and right lists
+    merged = []
+
+    # while there is a value in both lists, we compare first elements, 
+    # and add desired one into merged list, (append to the end)
+    # and most importantly we remove that element from its list
+    while len(left)>0 and len(right)>0:
+        if left[0]<=right[0]:
+            merged.append(left[0])
+            left.remove(left[0])
+        else:
+            merged.append(right[0])
+            right.remove(right[0])
+
+    # there might be some elements remaining in left/right lists, we also append them into merged
+    while len(left)>0:
+        # actually in python list can be appended in one line... 
+        # but following some classical styles/conventions is also good to understand
+        merged.append(left[0])
+        left.remove(left[0])
+
+    while len(right)>0:
+        merged.append(right[0])
+        right.remove(right[0])
+
+    # think why we started appending from left list not right in previous two loops?!
+
+    # we have done, just return prepared list
+    return merged
 
 
 def mergesort(A):
@@ -42,14 +71,7 @@ def mergesort(A):
     right = mergesort(right)
 
     # once we have collected left and right sub-arrays, we merge them.
-    # note that the function merge is called when all division happens, and the base cases are reached
+    # note that the function merge is called when all division happens, and the base case is reached
     # then it applies sorting on each sub-array and keeps merging them into one
-    """
-    1st:    [5, 2, 6, 4]
-    2nd:    [5, 2]; [6, 4]
-    3rd:    [5], [2]; [6], [4]
-        now merging is started
-    1st:    [2, 5]; [4, 6]
-    2nd:    [2, 4, 5, 6]
-    """
+
     return merge(left, right)
