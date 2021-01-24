@@ -10,8 +10,14 @@ def partition(A, p, r):
     """
     implementation of partition function used for quicksort
     """
-    pass
-
+    pivot = A[r]    # select pivot element
+    i = p - 1
+    for j in range(p, r):
+        if A[j]<pivot:      # if an element is less than a pivot, exchange i and jth elements
+            i+=1
+            A[j], A[i] = A[i], A[j]
+    A[r], A[i+1] = A[i+1], pivot        # at the end exchange pivot with i+1 th element of the list
+    return i+1      # return the index where partition should be performed
 
 def quicksort(A, p, r):
     """
