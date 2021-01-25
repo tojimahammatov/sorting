@@ -2,7 +2,7 @@
 # 1. partition function
 # 2. quicksort function
 
-# Time complexity, Worst-case ==>> O(n*logn)
+# Time complexity, Worst-case ==>> O(n^2)
 #            Average-Expected ==>> O(n*logn)
 # Space complexity, Big O ==>> O(1), in-place algorithm
 
