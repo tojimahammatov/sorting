@@ -1,6 +1,9 @@
 # Time complexity, Big O ==>> O(n*logn)
 # Space complexity, Big O ==>> O(1)
 
+# Max heap - a heap in which any parent is greater or equal to its children
+# Note: max heap implementation means sorting elements in ascending order
+ 
 HEAP_SIZE = 10
 
 def left_child(index):
@@ -62,3 +65,11 @@ def heapsort(A):
         HEAP_SIZE -= 1
         max_heapify(A, 1)
 
+# example
+A = ["TEST", 4, 6, 1, 9, 7, 2,0, -2, 8, 5]
+
+build_max_heap(A)   # build heap
+print(A)            # see the heap
+
+heapsort(A)     # sort heap
+print(A)
