@@ -1,3 +1,6 @@
+# Time complexity, Big O ==>> O(n*logn)
+# Space complexity, Big O ==>> O(1)
+
 HEAP_SIZE = 10
 
 def left_child(index):
@@ -17,6 +20,7 @@ def parent(index):
     returns index of a parent in the list
     """
     return index//2
+
 
 def max_heapify(A, index):
     """
@@ -38,3 +42,11 @@ def max_heapify(A, index):
         A[index], A[largest] = A[largest], A[index]
         max_heapify(A, largest)
 
+
+def build_max_heap(A):
+    """
+    builds (max) heap from the given list
+    """
+    global HEAP_SIZE
+    for index in range(HEAP_SIZE//2, 0, -1):
+        max_heapify(A, index)
