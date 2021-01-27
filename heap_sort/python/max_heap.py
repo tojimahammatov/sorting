@@ -50,3 +50,15 @@ def build_max_heap(A):
     global HEAP_SIZE
     for index in range(HEAP_SIZE//2, 0, -1):
         max_heapify(A, index)
+
+
+def heapsort(A):
+    """
+    applies heapsort to the given heap
+    """
+    global HEAP_SIZE
+    for _ in range(HEAP_SIZE-1):
+        A[1], A[HEAP_SIZE] = A[HEAP_SIZE], A[1]
+        HEAP_SIZE -= 1
+        max_heapify(A, 1)
+
